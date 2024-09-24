@@ -308,7 +308,7 @@ EOF
 # 启动代理服务
 cd /opt/proxy
 
-# 新版本 docker 集成了 compose 命令, 如果是老版本的 docker, 需要自动下载 docker-compose 命令后, 通过 docker-compose up -d 启动
+# 新版本 docker 集成了 compose 命令, 如果是老版本的 docker, 需要手动下载 docker-compose 命令后, 通过 docker-compose up -d 启动
 docker compose up -d
 ```
 
@@ -386,8 +386,8 @@ nvidia-smi --query-gpu=index,temperature.gpu --format=csv,noheader
 
 4. 其他排查问题思路
 
-a. 查看 `cpu`, 内存, 磁盘`io`, 网络`io` 资源占用情况
-b. 查看 `BMC` 健康日志
+  1. 查看 `cpu`, 内存, 磁盘`io`, 网络`io` 资源占用情况
+  2. 查看 `BMC` 健康日志
 
 ### 自动化
 
