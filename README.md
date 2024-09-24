@@ -190,7 +190,7 @@ tar zvxf aleo_prover-v0.2.1.tar.gz
 vim /lib/systemd/system/aleo.service
 ```
 
-写入以下内容, **注意修改其中的 `钱包地址` 与 ` 矿工名字`**
+写入以下内容, **注意修改其中的 `钱包地址` 与 ` 矿工名字`; 如果需要指定 `GPU`, 需要在 `ExecStart` 参数末尾添加 `-g 0 -g 1 -g 2` 参数指定 `GPU`**
 
 ```ini
 [Unit]
