@@ -99,8 +99,16 @@ systemctl disable --now unattended-upgrades
 sed -i '/^APT::Periodic::Unattended-Upgrade/ s/"1"/"0"/' /etc/apt/apt.conf.d/20auto-upgrades
 apt-mark hold linux-image-generic linux-headers-generic
 
-# 卸载 nouveau 内核模块, 因开源的 nouveau 驱动与 nvidia 驱动不兼容, 所以需要卸载
+# 卸载 nouveau 内核模块, 因开源的 nouveau 驱动与 nvidia 驱动不兼容, 所以需要卸载并加入内核黑名单
 rmmod nouveau > /dev/null 2>&1 || true
+
+cat > /etc/modprobe.d/blacklist-nouveau.conf <<EOF
+blacklist nouveau
+blacklist lbm-nouveau
+options nouveau modeset=0
+EOF
+
+update-initramfs -u
 
 # 安装 550 版本 server 驱动, 安装其他版本, 修改包名中的 550 即可
 apt install -y nvidia-dkms-550-server nvidia-driver-550-server nvidia-utils-550-server
@@ -132,7 +140,7 @@ systemctl disable --now unattended-upgrades
 sed -i '/^APT::Periodic::Unattended-Upgrade/ s/"1"/"0"/' /etc/apt/apt.conf.d/20auto-upgrades
 apt-mark hold linux-image-generic linux-headers-generic
 
-# 卸载 nouveau 内核模块, 因开源的 nouveau 驱动与 nvidia 驱动不兼容, 所以需要卸载
+# 卸载 nouveau 内核模块, 因开源的 nouveau 驱动与 nvidia 驱动不兼容, 所以需要卸载(通过 cuda .run 文件安装方式会自动设置 nouveau 内核黑名单, 不需要手动设置)
 rmmod nouveau > /dev/null 2>&1 || true
 
 # 下载 cuda .run文件, 这里使用的 cuda_12.4.1_550.54.15(为了更好的兼容锄头, 建议选择550及以上版本), 其他版本参考: https://developer.nvidia.com/cuda-toolkit-archive
