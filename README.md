@@ -218,7 +218,9 @@ LimitCORE=infinity
 WantedBy=multi-user.target
 ```
 
-执行 `reload` 命令
+执行 `daemon-reload` 命令
+
+**备注: 每次修改 `/lib/systemd/system/aleo.service` 文件保存后, 都需要执行 `systemctl daemon-reload` 命令**
 
 ```bash
 systemctl daemon-reload
@@ -236,12 +238,17 @@ systemctl stop aleo
 # 重启
 systemctl restart aleo
 
-# 设置开启自启动
+# 设置开机自启动
 systemctl enable aleo
+
+# 关闭开机自启动
+systemctl disable aleo
 
 # 查看日志
 journalctl -f -u aleo
 ```
+
+**如果 `systemctl` 相关命令卡住, 有可能是 `GPU` 卡出现问题, 参考: [nvidia GPU 常见故障处理](https://github.com/xin053/zkwork#nvidia-gpu-%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86)**
 
 ## 其他
 
@@ -358,6 +365,8 @@ curl -k -s "https://zk.work/api/aleo/miner/钱包地址/workerList?page=1&size=1
 
 参考: [https://www.volcengine.com/docs/6419/839699](https://www.volcengine.com/docs/6419/839699)
 
+有些情况当显卡出现问题后, 必须重启服务器才能恢复, 重启后, 可以通过 `-g 0 -g 1 -g 2 -g 3` 参数指定使用哪些 `GPU` 卡
+
 这里主要列出几种常见情况:
 
 1. `rev ff` 掉卡
@@ -386,8 +395,9 @@ nvidia-smi --query-gpu=index,temperature.gpu --format=csv,noheader
 
 4. 其他排查问题思路
 
-  1. 查看 `cpu`, 内存, 磁盘`io`, 网络`io` 资源占用情况
-  2. 查看 `BMC` 健康日志
+查看 `cpu`, 内存, 磁盘`io`, 网络`io` 资源占用情况
+
+查看 `BMC` 健康日志
 
 ### 自动化
 
