@@ -346,7 +346,9 @@ proxychains /opt/aleo_prover --pool aleo.hk.zk.work:10003 --address 钱包地址
 
 ### 监控
 
-`zkwork` 之后的版本会集成监控告警, 这里仅提供思路
+**`zkwork` 已提供通过 `telegram` 机器人监控掉线 `work` 方案, `telegram` 上搜索 `@aleo_info_bot` 根据提示订阅 `aleo` 钱包地址即可, `telegram` 机器人使用问题可在官方 [`discord` 频道](https://discord.com/channels/984349855617011712/1288448039077544029)反馈**
+
+下面是另外的监控告警思路:
 
 ```bash
 # 安装 jq
