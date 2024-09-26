@@ -169,14 +169,14 @@ nvidia-smi -pm 1
 
 ## 下载并启动锄头
 
-`zkwork` 锄头不同版本对比参考: [https://docs.google.com/spreadsheets/d/1L3kDeoVodZ6_kTzp5WDOvmobObxN8aeAAwT1qPXoTo0/edit?gid=0#gid=0](https://docs.google.com/spreadsheets/d/1L3kDeoVodZ6_kTzp5WDOvmobObxN8aeAAwT1qPXoTo0/edit?gid=0#gid=0), 请自行选择版本, 这里以 `v0.2.1` 版本为例
+`zkwork` 锄头不同版本对比参考: [https://docs.google.com/spreadsheets/d/1L3kDeoVodZ6_kTzp5WDOvmobObxN8aeAAwT1qPXoTo0/edit?gid=0#gid=0](https://docs.google.com/spreadsheets/d/1L3kDeoVodZ6_kTzp5WDOvmobObxN8aeAAwT1qPXoTo0/edit?gid=0#gid=0), 请自行选择版本, 这里以 `v0.2.2-full` 版本为例
 
 ```bash
 cd /opt
-# 注意版本, 此处使用的 0.2.1 版本
-wget https://github.com/6block/zkwork_aleo_gpu_worker/releases/download/v0.2.1/aleo_prover-v0.2.1.tar.gz
+# 注意版本, 此处使用的 0.2.2-full 版本
+wget https://github.com/6block/zkwork_aleo_gpu_worker/releases/download/v0.2.2/aleo_prover-v0.2.2_full.tar.gz
 # 如果直接从 github 下载失败, 可以使用如下公益代理或自行通过代理软件下载
-wget https://ghp.ci/https://github.com/6block/zkwork_aleo_gpu_worker/releases/download/v0.2.1/aleo_prover-v0.2.1.tar.gz
+wget https://ghp.ci/https://github.com/6block/zkwork_aleo_gpu_worker/releases/download/v0.2.2/aleo_prover-v0.2.2_full.tar.gz
 
 # 解压
 tar zvxf aleo_prover-v0.2.1.tar.gz
