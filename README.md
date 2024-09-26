@@ -179,7 +179,7 @@ wget https://github.com/6block/zkwork_aleo_gpu_worker/releases/download/v0.2.2/a
 wget https://ghp.ci/https://github.com/6block/zkwork_aleo_gpu_worker/releases/download/v0.2.2/aleo_prover-v0.2.2_full.tar.gz
 
 # 解压
-tar zvxf aleo_prover-v0.2.1.tar.gz
+tar zvxf aleo_prover-v0.2.2_full.tar.gz
 ```
 
 ### 创建 systemd 文件
